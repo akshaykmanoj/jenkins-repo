@@ -24,26 +24,26 @@ pipeline {
             }
         }
 
-        // stage('Code Analysis') {
-        //     steps {
-        //         withSonarQubeEnv('SonarCloud') {
-        //             // Run SonarCloud analysis
-        //             sh 'dotnet sonarscanner begin /k:"akshaykmanoj_jenkins-repo" /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
-        //             sh 'dotnet build'
-        //             sh 'dotnet sonarscanner end /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
-        //         }
-        //     }
-        // }
-        stage('SonarCloud Analysis') {
-            environment {
-                scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
-            }
+        stage('Code Analysis') {
             steps {
                 withSonarQubeEnv('SonarCloud') {
-                    sh "${scannerHome}/bin/sonar-scanner"
+                    // Run SonarCloud analysis
+                    sh 'dotnet sonarscanner begin /k:"akshaykmanoj_jenkins-repo" /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
+                    sh 'dotnet build'
+                    sh 'dotnet sonarscanner end /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
                 }
             }
         }
+        // stage('SonarCloud Analysis') {
+        //     environment {
+        //         scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
+        //     }
+        //     steps {
+        //         withSonarQubeEnv('SonarCloud') {
+        //             sh "${scannerHome}/bin/sonar-scanner"
+        //         }
+        //     }
+        // }
 
         
 
