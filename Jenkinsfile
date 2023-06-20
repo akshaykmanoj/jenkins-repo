@@ -44,7 +44,7 @@ pipeline {
         //         }
         //     }
         // }
-        stage('SonarQube analysis 2') {
+        stage('SonarQube analysis') {
             steps {
                 sh 'gradle sonarqube'
             }
