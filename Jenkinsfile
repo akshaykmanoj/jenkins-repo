@@ -16,13 +16,13 @@ pipeline {
             }
         }
 
-        // stage('Unit Test') {
-        //     steps {
-        //         dir('./Example Hello World Apps/C#/MyApp') {
-        //             sh 'dotnet test'
-        //         }
-        //     }
-        // }
+        stage('Unit Test') {
+            steps {
+                dir('./Example Hello World Apps/C#/MyApp') {
+                    sh 'dotnet test'
+                }
+            }
+        }
 
         // stage('Code Analysis') {
         //     steps {
