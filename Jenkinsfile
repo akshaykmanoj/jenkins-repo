@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Git Checkout') {
             steps {
-                git branch: 'main', credentialsId: 'git_key', url: 'https://github.com/nusairc/lhd-helloworld.git'
+                git branch: 'main', credentialsId: 'git-key', url: 'https://github.com/akshaykmanoj/jenkins-repo.git'
             }
         }
 
@@ -24,16 +24,16 @@ pipeline {
             }
         }
 
-        stage('Code Analysis') {
-            steps {
-                withSonarQubeEnv('SonarCloud') {
-                    // Run SonarCloud analysis
-                    sh 'dotnet sonarscanner begin /k:"nusairc_lhd-helloworld" /d:sonar.login="27df43c466529cd9ce1d758590af8cbc1c556624"'
-                    sh 'dotnet build'
-                    sh 'dotnet sonarscanner end /d:sonar.login="27df43c466529cd9ce1d758590af8cbc1c556624"'
-                }
-            }
-        }
+        // stage('Code Analysis') {
+        //     steps {
+        //         withSonarQubeEnv('SonarCloud') {
+        //             // Run SonarCloud analysis
+        //             sh 'dotnet sonarscanner begin /k:"nusairc_lhd-helloworld" /d:sonar.login="27df43c466529cd9ce1d758590af8cbc1c556624"'
+        //             sh 'dotnet build'
+        //             sh 'dotnet sonarscanner end /d:sonar.login="27df43c466529cd9ce1d758590af8cbc1c556624"'
+        //         }
+        //     }
+        // }
         
 
         // Add additional stages for unit tests, code analysis, etc.
