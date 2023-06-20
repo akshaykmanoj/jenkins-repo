@@ -8,13 +8,13 @@ pipeline {
             }
         }
 
-        // stage('Build') {
-        //     steps {
-        //         dir('./Example Hello World Apps/C#/MyApp') {
-        //             sh 'dotnet build'
-        //         }
-        //     }
-        // }
+        stage('Build') {
+            steps {
+                dir('./Example Hello World Apps/C#/MyApp') {
+                    sh 'dotnet build'
+                }
+            }
+        }
 
         // stage('Unit Test') {
         //     steps {
