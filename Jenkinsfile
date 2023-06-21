@@ -42,7 +42,7 @@ pipeline {
                 }
             }
         }
-        //file add
+        
         // stage('SonarCloud Analysis') {
         //     environment {
         //         scannerHome = tool name: 'SonarQube Scanner', type: 'hudson.plugins.sonar.SonarRunnerInstallation'
