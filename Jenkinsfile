@@ -28,7 +28,7 @@ pipeline {
         //     steps {
         //         sh 'dotnet sonarscanner begin /k:akshaykmanoj_jenkins-repo /d:sonar.login=******'
         //         sh 'dotnet build'
-        //         sh 'dotnet sonarscanvhhner end /d:sonar.login=******'
+        //         sh 'dotnet sonarscanner end /d:sonar.login=******'
         //     }
         // }
 
