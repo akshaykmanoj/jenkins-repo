@@ -24,24 +24,24 @@ pipeline {
             }
         }
 
-        stage('SonarCloud Analysis') {
-            steps {
-                sh 'dotnet sonarscanner begin /k:akshaykmanoj_jenkins-repo /d:sonar.login=******'
-                sh 'dotnet build'
-                sh 'dotnet sonarscanner end /d:sonar.login=******'
-            }
-        }
-
-        // stage('Code Analysis') {
+        // stage('SonarCloud Analysis') {
         //     steps {
-        //         withSonarQubeEnv('SonarCloud') {
-        //             // Run SonarCloud analysis
-        //             sh 'dotnet sonarscanner begin /k:"akshaykmanoj_jenkins-repo" /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
-        //             sh 'dotnet build'
-        //             sh 'dotnet sonarscanner end /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
-        //         }
+        //         sh 'dotnet sonarscanner begin /k:akshaykmanoj_jenkins-repo /d:sonar.login=******'
+        //         sh 'dotnet build'
+        //         sh 'dotnet sonarscanner end /d:sonar.login=******'
         //     }
         // }
+
+        stage('Code Analysis') {
+            steps {
+                withSonarQubeEnv('SonarCloud') {
+                    // Run SonarCloud analysis
+                    sh 'dotnet sonarscanner begin /k:"akshaykmanoj_jenkins-repo" /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
+                    sh 'dotnet build'
+                    sh 'dotnet sonarscanner end /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
+                }
+            }
+        }
         //file add
         // stage('SonarCloud Analysis') {
         //     environment {
