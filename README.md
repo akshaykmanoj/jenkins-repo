@@ -17,10 +17,11 @@ prerequisite :
 
   - Set up an AWS EC2 instance and install Jenkins on it.
   - Create an account on SonarCloud or install SonarQube for code analysis.
-          Configure the necessary credentials and plugins in Jenkins.
-          Create a Jenkins pipeline job and configure it to use the Jenkinsfile provided in this repository.
-          Set up a webhook in your GitHub repository to trigger the Jenkins job automatically when new code is pushed. go to github settings and add webhook - give your               jenkins URl there , refer more resources for better understanding
-          Explore the pipeline stages and observe the CI/CD process and code analysis in action.
+  - Configure the necessary credentials and plugins in Jenkins.
+  - Create a Jenkins pipeline job and configure it to use the Jenkinsfile provided in this repository.
+  - Set up a webhook in your GitHub repository to trigger the Jenkins job automatically when new code is pushed. go to github settings and add webhook - give your         
+    jenkins URl there , refer more resources for better understanding
+  - Explore the pipeline stages and observe the CI/CD process and code analysis in action.
 # Hello, World in a New Language - MLH Local Hack Day
 
 This repo contains various **Hello, World** tutorials that participants from the **Hello, World in a New Language** sessions at [MLH Local Hack Day](https://lhd.mlh.io) tried and contributed.
