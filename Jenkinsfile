@@ -23,29 +23,24 @@ pipeline {
                 }
             }
         }
-
-       
-
-        // stage('Code Analysis') {
-        //     steps {
-        //         withSonarQubeEnv('SonarCloud') {
-        //             // Run SonarCloud analysis
-        //             sh 'dotnet sonarscanner begin /k:"akshaykmanoj_jenkins-repo" /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
-        //             sh 'dotnet build'
-        //             sh 'dotnet sonarscanner end /d:sonar.login="9cd4c30f472e3b2037fa99928a26f0c9181770eb"'
-        //         }
-        //     }
-        // }
+    
+        stage('Code Analysis') {
+            steps {
+                withSonarQubeEnv('SonarCloud') {
+                    // Run SonarCloud analysis
+                    sh 'dotnet sonarscanner begin /k:"akshaykmanoj_jenkins-repo" /d:sonar.login="9cd4c30f472e3b############a26f0c9181770eb"'
+                    sh 'dotnet build'
+                    sh 'dotnet sonarscanner end /d:sonar.login="9cd4c30f472e3b############a26f0c9181770eb"'
+                }
+            }
+        }
 
         stage('Docker Login') {
               steps {
-                 withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'Akshay@1998', usernameVariable: 'akshaykmanoj')]) {
-                      sh 'docker login -u $akshaykmanoj -p $Akshay@1998'
+                 withCredentials([usernamePassword(credentialsId: 'docker-credentials', passwordVariable: 'password', usernameVariable: 'username')]) {
+                      sh 'docker login -u $usernmae -p $password'
                     }
                 }
-            }
-
-
-    
+            }    
     }
 }
